@@ -20,6 +20,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.LinkedHashSet;
 
 import org.apache.commons.collections4.Transformer;
 import org.apache.commons.collections4.collection.TransformedCollectionTest;
@@ -57,7 +58,7 @@ public class TransformedSetTest<E> extends AbstractSetTest<E> {
     @Override
     @SuppressWarnings("unchecked")
     public Set<E> makeFullCollection() {
-        final Set<E> list = new HashSet<>(Arrays.asList(getFullElements()));
+        final Set<E> list = new LinkedHashSet<>(Arrays.asList(getFullElements()));
         return TransformedSet.transformingSet(list,
                 (Transformer<E, E>) TransformedCollectionTest.NOOP_TRANSFORMER);
     }
